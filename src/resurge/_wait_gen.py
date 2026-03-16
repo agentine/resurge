@@ -14,7 +14,7 @@ def expo(
     yield  # type: ignore[misc]
     n = 0
     while True:
-        a = factor * base**n
+        a: float = factor * base**n
         if max_value is not None and a >= max_value:
             a = max_value
         yield a
@@ -24,7 +24,8 @@ def expo(
 def fibo(max_value: Optional[float] = None) -> Generator[float, Any, None]:
     """Fibonacci backoff: 1, 1, 2, 3, 5, 8, 13, ..."""
     yield  # type: ignore[misc]
-    a, b = 1, 1
+    a: float = 1
+    b: float = 1
     while True:
         if max_value is not None and a >= max_value:
             a = max_value
